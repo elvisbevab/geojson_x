@@ -9,6 +9,12 @@ const propertySchema = new mongoose.Schema({
   image: { type: String, required: true },
   images: [String],
   owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  avalibility: {
+    type: String,
+    num: ['vacant', 'rented', 'sold'],
+    default: 'vacant',
+  },
+  createdat: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model('Property', propertySchema);
